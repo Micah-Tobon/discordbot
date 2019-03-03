@@ -1,5 +1,4 @@
-var Discord = require('discord.io');
-const Discord = require("botinfo.js");
+var Discord = require('discord.io',"botinfo.js");
 var logger = require('winston');
 var auth = require('./auth.json');
 // Configure logger settings
