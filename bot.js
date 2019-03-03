@@ -38,8 +38,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
      }
 
 });
+bot.on('message', function (user, userID, channelID, message, evt) {
 
-module.exports.run = async (bot, message, args) => {
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
     .setDescription("Server Information")
@@ -51,8 +51,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("Total Members", message.guild.memberCount);
 
     message.channel.send(serverembed);
-};
+});
 
 module.exports.help = {
   name:"serverinfo"
-};
+}
