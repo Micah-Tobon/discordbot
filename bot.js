@@ -54,6 +54,6 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-  return "Hello";
   name:"serverinfo"
+  return "hello";
 }
