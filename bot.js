@@ -1,7 +1,6 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
-var serverinfo = require('./serverinfo.js')
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
@@ -55,8 +54,4 @@ const run = async (bot, message, args) => {
     .addField("Total Members", message.guild.memberCount);
 
     message.channel.send(serverembed);
-}
-
-module.exports.help = {
-  name:"serverinfo"
 }
