@@ -17,8 +17,6 @@ bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
-    serverinfo.run;
-    serverinfo.autorun;
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -29,6 +27,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
         args = args.splice(1);
         switch(cmd) {
+          // !serverinfo
+            case 'serverinfo':
+              run(bot, message, args);
+              break;
             // !ping
             case 'ping':
                 bot.sendMessage({
@@ -42,13 +44,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
 });
 
-module.exports.run = async (bot, message, args) => {
-    let sicon = message.guild.iconURL;
+const run = async (bot, message, args) => {
     let serverembed = new Discord.RichEmbed()
     .setDescription("Server Information")
     .setColor("#15f153")
     .setThumbnail(sicon)
-    .addField("Server Name", message.guild.name)
+    .addField("Server Name", "League Server")
     .addField("Created On", message.guild.createdAt)
     .addField("You Joined", message.member.joinedAt)
     .addField("Total Members", message.guild.memberCount);
